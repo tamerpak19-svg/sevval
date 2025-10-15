@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Şevval — Küçük Bir Sürpriz 💘</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+  <style>
+    body{
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      font-family:'Poppins',sans-serif;
+      background:radial-gradient(circle at top, #ff3355, #800000);
+      color:#fff;
+      text-align:center;
+      overflow:hidden;
+    }
+    h1{
+      font-size:clamp(28px,5vw,50px);
+      margin-bottom:40px;
+      text-shadow:0 0 15px rgba(255,255,255,0.6);
+    }
+    button{
+      margin:15px;
+      background:#fff;
+      color:#ff3366;
+      border:none;
+      padding:18px 30px;
+      border-radius:35px;
+      font-size:18px;
+      font-weight:700;
+      cursor:pointer;
+      box-shadow:0 0 15px rgba(255,255,255,0.4);
+      transition:all .3s ease;
+    }
+    button:hover{
+      background:#ff3366;
+      color:#fff;
+      transform:scale(1.1);
+      box-shadow:0 0 25px rgba(255,255,255,0.6);
+    }
+    .hearts{
+      position:absolute;
+      font-size:20px;
+      opacity:0.5;
+      animation:float 6s linear infinite;
+    }
+    @keyframes float{
+      0%{transform:translateY(100vh);opacity:0;}
+      30%{opacity:0.8;}
+      100%{transform:translateY(-10vh);opacity:0;}
+    }
+  </style>
+</head>
+<body>
+  <h1>💖 Küçük bir test Şevval 💖</h1>
+
+  <button onclick="goToLove()">SENİ ÇOK SEVDİĞİMİ BİLİYORSAN BU BUTONA TIKLA</button>
+  <button onclick="goToLove()">BENİM SENİ ÇOK SEVDİĞİMDEN ŞÜPHE EDİYORSAN BUNA TIKLA 😢</button>
+
+  <script>
+    // İki buton da aynı sayfaya götürür
+    function goToLove(){
+      window.location.href = "seviyorum.html"; // Diğer dosyanın adı bu olacak
+    }
+
+    // Arka planda uçan kalpler
+    function createHeart(){
+      const h=document.createElement('div');
+      h.classList.add('hearts');
+      h.textContent='❤';
+      h.style.left=Math.random()*100+'vw';
+      h.style.animationDuration=3+Math.random()*4+'s';
+      document.body.appendChild(h);
+      setTimeout(()=>h.remove(),7000);
+    }
+    setInterval(createHeart,400);
+  </script>
+</body>
+</html>
